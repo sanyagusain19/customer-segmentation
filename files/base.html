@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Customer Segmentation Studio{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="page-wrap">
+    <div class="nav">
+      <a href="{{ url_for('home') }}" class="logo">
+        <span class="logo-dots">
+          <span style="background:#86C1AF"></span>
+          <span style="background:#C0E1D8"></span>
+          <span style="background:#CBE8E3"></span>
+          <span style="background:#E5F2FB"></span>
+          <span style="background:#A9D5FA"></span>
+        </span>
+        <span class="logo-text">Segmently<small>Customer Clustering</small></span>
+      </a>
+      <a href="{{ url_for('dashboard') }}" class="nav-link">Dashboard</a>
+    </div>
+
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

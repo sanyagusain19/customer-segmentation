@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Segmently — {{ segment }}{% endblock %}
+
+{% block content %}
+
+<div class="soft-raised result-hero">
+  <div class="cluster-badge" style="background:{{ cluster_color }}; color:{{ badge_text_color }};">C{{ cluster }}</div>
+  <div class="segment-tag">This customer belongs to</div>
+  <div class="segment-name">{{ segment }}</div>
+
+  <div class="soft-inset recommendation-card">
+    <div>
+      <div class="rec-label">Suggested strategy</div>
+      <p>{{ recommendation }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="stats-grid">
+  <div class="soft-raised stat-card">
+    <div class="stat-value">{{ age|int }}</div>
+    <div class="stat-label">Age</div>
+  </div>
+  <div class="soft-raised stat-card">
+    <div class="stat-value">₹{{ "{:,.0f}".format(income) }}</div>
+    <div class="stat-label">Annual income</div>
+  </div>
+  <div class="soft-raised stat-card">
+    <div class="stat-value">₹{{ "{:,.0f}".format(spending) }}</div>
+    <div class="stat-label">Total spending</div>
+  </div>
+  <div class="soft-raised stat-card">
+    <div class="stat-value">{{ web_purchase|int }}</div>
+    <div class="stat-label">Web purchases</div>
+  </div>
+  <div class="soft-raised stat-card">
+    <div class="stat-value">{{ store_purchase|int }}</div>
+    <div class="stat-label">Store purchases</div>
+  </div>
+  <div class="soft-raised stat-card">
+    <div class="stat-value">{{ web_visit|int }}</div>
+    <div class="stat-label">Web visits / month</div>
+  </div>
+</div>
+
+<div class="section-heading">
+  <h2>Where they sit on the map</h2>
+  <p>The star marks this customer against every other customer in the dataset.</p>
+</div>
+
+<div class="soft-raised graph-card">
+  {{ graph | safe }}
+</div>
+
+<div class="back-row">
+  <a href="{{ url_for('home') }}" class="soft-btn-ghost">Try another customer</a>
+</div>
+
+{% endblock %}

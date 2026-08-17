@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Segmently — Dashboard{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <div class="eyebrow">Overview</div>
+  <h1>Every customer, mapped by income and spending.</h1>
+  <p>Six segments, colour-coded, so patterns in who spends where jump out at a glance.</p>
+</div>
+
+<div class="dash-stats">
+  <div class="soft-raised stat-card">
+    <div class="stat-value">{{ "{:,}".format(total_customers) }}</div>
+    <div class="stat-label">Total customers</div>
+  </div>
+  <div class="soft-raised stat-card">
+    <div class="stat-value">₹{{ "{:,.0f}".format(avg_income) }}</div>
+    <div class="stat-label">Average income</div>
+  </div>
+</div>
+
+<div class="soft-raised graph-card">
+  {{ graph | safe }}
+</div>
+
+<div class="back-row">
+  <a href="{{ url_for('home') }}" class="soft-btn-ghost">Check a new customer</a>
+</div>
+{% endblock %}

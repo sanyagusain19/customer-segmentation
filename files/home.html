@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Segmently — Find a Customer's Segment{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <div class="eyebrow">K-Means · 6 Segments</div>
+  <h1>Enter a customer's details,<br>see which segment they belong to.</h1>
+  <p>Segmently clusters customers by age, income, and buying behaviour, then hands you a ready-made strategy for the segment they land in.</p>
+</div>
+
+<form class="soft-raised form-card" action="{{ url_for('predict') }}" method="POST">
+  <div class="field-grid">
+    <div class="field">
+      <label for="age">Age</label>
+      <input type="number" step="1" min="0" id="age" name="age" placeholder="e.g. 34" required>
+    </div>
+    <div class="field">
+      <label for="income">Annual income <span class="field-hint">in ₹</span></label>
+      <input type="number" step="1" min="0" id="income" name="income" placeholder="e.g. 58000" required>
+    </div>
+    <div class="field">
+      <label for="total_spending">Total spending <span class="field-hint">lifetime, in ₹</span></label>
+      <input type="number" step="1" min="0" id="total_spending" name="total_spending" placeholder="e.g. 850" required>
+    </div>
+    <div class="field">
+      <label for="web_purchase">Web purchases <span class="field-hint">count</span></label>
+      <input type="number" step="1" min="0" id="web_purchase" name="web_purchase" placeholder="e.g. 6" required>
+    </div>
+    <div class="field">
+      <label for="store_purchase">Store purchases <span class="field-hint">count</span></label>
+      <input type="number" step="1" min="0" id="store_purchase" name="store_purchase" placeholder="e.g. 4" required>
+    </div>
+    <div class="field">
+      <label for="web_visit">Web visits <span class="field-hint">per month</span></label>
+      <input type="number" step="1" min="0" id="web_visit" name="web_visit" placeholder="e.g. 5" required>
+    </div>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="soft-btn">Find their segment</button>
+  </div>
+</form>
+{% endblock %}
