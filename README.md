@@ -1,1 +1,1 @@
-# customer-segmentation
+#HI, THIS IS MY SMALL PROJECT
