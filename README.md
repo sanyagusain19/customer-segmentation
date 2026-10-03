@@ -1,1 +1,1 @@
-#HI, THIS IS MY SMALL PROJECT
+# Customer segmentation: Minor project
